@@ -11,6 +11,8 @@
 %       - edges: 'similar' (by default) for joint contour across components
 % or 'distinct' for one contour per component
 %   	- norm: 'L1' (by default) for l1-norm
+%       - type: '2D' (by default) or '1D'
+%   	- prior: 'gradient' (by default) or 'Laplacian'
 %returns:
 %   - u in R^{n1xn2xm}: the denoised image
 %   - e in R^{n1xn2xM}: the contour where M is m for distinct edges and 1

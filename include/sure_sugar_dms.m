@@ -8,10 +8,23 @@ function [sure,sugar,x] = sure_sugar_dms(data, choice, fdmc, lambda)
 % Unbiased GrAdient estimator of the Risk (SUGAR) for multiple parameter 
 % selection. SIAM J. Imaging Sci. (2014)
 % and 
-% -  Pascal B. and Vaiter S. and Pustelnik N. and Abry P.: Automated 
-% data-driven selection of the hyperparameters for Total-Variation based 
-% texture segmentation. Preprint arXiv:2004.09434 (2020)
+% -  C.-G. Lucas, B. Pascal, N. Pustelnik and P. Abry: Hyperparameter
+% selection for the Discrete Mumford-Shah functional (2021)
 % April 2021
+%
+%inputs:
+%   - choice: structure to select the parameters of D-MS
+%       - edges: 'similar' (by default) for joint contour across components
+% or 'distinct' for one contour per component
+%   	- norm: 'L1' (by default) for l1-norm
+%       - type: '2D' (by default) or '1D'
+%   	- prior: 'gradient' (by default) or 'Laplacian'
+%   - param: structure to select the parameters of SUGAR D-MS
+%       - edges: 'similar' (by default) for joint contour across components
+% or 'distinct' for one contour per component
+%   	- norm: 'L1' (by default) for l1-norm
+%       - type: '2D' (by default) or '1D'
+%   	- prior: 'gradient' (by default) or 'Laplacian'
 
 av_sure = 0;
 av_sugar = zeros(numel(lambda),1);

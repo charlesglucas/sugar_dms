@@ -6,7 +6,8 @@ function  [lambda,crit] = bfgs_sugar_dms(data, param, choice)
     % April 2021
     
     % default parameters
-    if nargin == 2, choice = struct; end
+    if nargin == 1, param = struct; end
+    if nargin < 3, choice = struct; end
     if ~isfield(choice,'prior'), choice.prior = 'gradient'; end
     if ~isfield(choice,'norm'), choice.norm = 'L1'; end
     if ~isfield(choice,'edges'), choice.edges = 'similar'; end

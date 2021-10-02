@@ -17,6 +17,8 @@
 %       m for distinct edges and 1 otherwise
 %
 % Implementation C.G. LUCAS, ENS Lyon
+% from C.-G. Lucas, B. Pascal, N. Pustelnik and P. Abry: Hyperparameter
+% selection for the Discrete Mumford-Shah functional (2021)
 % April 2021
 function [u,du,crit] = dDMS(z,beta,lambda,choice)
 
