@@ -13,7 +13,7 @@ The following matlab packages is required: GRANS0(https://gitlab.com/timmitchell
   - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
   
 ## Quick start
-The basic syntax to run SUGAR DMS is as follows:
+The basic syntax to run SUGAR D-MS is as follows:
 
 ```
 % return optimal hyperparameters of D-MS
@@ -24,7 +24,7 @@ The basic syntax to run SUGAR DMS is as follows:
 
 The main parameters to take into account are:
 
-  - RCAs initialization:
+  - SUGAR D-MS parameters:
     - `R`, the number of realizations of the Monte Carlo vector
     - `sigma`, the noise level which is estimated by default
     
