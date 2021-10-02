@@ -1,0 +1,162 @@
+%This algorithm minimizes
+%
+%           1/2*||z-u||^2 + beta*||(1-e).*Du||^2 + lambda*R(e)
+%
+%inputs:
+%   - z in R^{n1xn2xm}: a noisy observation which is m components of
+%       2D-grids n1xn2
+%   - beta: hyperparameter associated to smoothness
+%   - lambda: hyperparameter associated to contour detection 
+%   - choice: structure to select the parameters of the problem
+%       - edges: 'similar' (by default) or 'distinct'
+%   	- R: 'L1' (by default) or 'L12'
+%returns:
+%   - u in R^{n1xn2xm}: the denoised image
+%   - e in R^{n1xn2x2xM}: the vertical and horizontal contours where M is
+%       m for distinct edges and 1 otherwise
+
+function [u,du,crit] = dDMS(z,beta,lambda,choice)
+
+% default parameters
+if nargin == 3, choice = struct; end
+if ~isfield(choice,'prior'), choice.prior = 'gradient'; end
+if ~isfield(choice,'norm'), choice.norm = 'L1'; end
+if ~isfield(choice,'edges'), choice.edges = 'similar'; end
+if ~isfield(choice,'type'), choice.type = '2D'; end
+
+% dimensions
+% type
+if strcmp(choice.type,'1D')
+    [n,m] = size(z);
+elseif strcmp(choice.type,'2D')
+    [n1,n2,m] = size(z);
+end
+
+% edges
+if strcmp(choice.edges,'similar')
+    l = 1;
+elseif strcmp(choice.edges,'distinct')
+    l = m;
+end
+
+% type
+if strcmp(choice.type,'1D')
+    dim = 2;
+    rep = [1 m/l];
+    normD = 1;
+elseif strcmp(choice.type,'2D')
+    dim = 4;
+    rep = [1 1 1 m/l];
+    normD = sqrt(2);
+end
+
+% parameters and their derivatives
+ck = 1.01*beta*normD^2+1e-16;
+dk = ck/1000;
+dck = 1.01*normD^2;
+ddk = dck/1000;
+
+% finite difference operator
+D = @(u) opD(u,choice);
+Dstar = @(u) opDstar(u,choice);
+
+% functionals
+sum_all = @(M) sum(M(:));
+
+L = @(u,z) sum_all((u-z).^2)/2;
+proxL = @(u,z,tau) (u+tau.*z)./(1+tau);
+
+S = @(e,u) sum_all((repmat((1-e),rep).*D(u)).^2);
+gradS = @(e,u) 2*Dstar(repmat((1-e).^2,rep).*D(u));
+
+if strcmp(choice.norm,'L1')
+    sigmai.expr = @(eta) abs(eta);
+end
+sigmai.prox = @(eta,tau) eta .* max(0,1 - tau./sigmai.expr(eta));
+%sigmai.dxprox = @(e,de,tau) deprox(e,de,tau,choice.type);
+R = @(e) sum_all(sigmai.expr(e));
+
+Psi = @(u,e,z)  L(u,z) + beta*S(e,u) + lambda*R(e);
+
+%initialization
+u0 = z;
+if strcmp(choice.type,'1D')
+    e0 = ones(n,l);
+elseif strcmp(choice.type,'2D')
+    e0 = ones(n1,n2,2,l);
+end
+Psi_2 = Psi(u0,e0,z);
+u = z;
+e = e0;
+gap = 1;
+
+N = 2;
+du = cell(1,N);
+de = cell(1,N);
+for i = 1:N
+    du{i} = zeros(size(z)); 
+    de{i} = zeros(size(e));  
+end
+
+k = 1;
+while (gap > 1e-4)
+    Psi_1 = Psi_2;
+
+    % update u
+    uTilde = u - gradS(e,u)/dck;
+    u = proxL(uTilde,z,1/ck);
+    
+    % update du
+    duTilde{1} = du{1} - 2/dck*Dstar(repmat((1-e).^2,rep).*D(du{1}))... %2*Dstar(repmat((1-e).^2,rep).*D(u));
+        + 4/dck*Dstar(repmat((1-e).*de{1},rep).*D(u));% ...
+    duTilde{2} = du{2} - 2/dck*Dstar(repmat((1-e).^2,rep).*D(du{2}))...
+        + 4/dck*Dstar(repmat((1-e).*de{2},rep).*D(u));
+    du{1} = ck/(ck+1)*duTilde{1} + dck*(uTilde-z)./(ck+1).^2;
+    du{2} = ck/(ck+1)*duTilde{2};
+    
+    % update e
+    if strcmp(choice.edges,'similar')
+        Du2 = sum(D(u).^2,dim);
+        dDu2{1} =  2*sum(D(u).*D(du{1}),dim);
+        dDu2{2} =  2*sum(D(u).*D(du{2}),dim);
+    elseif strcmp(choice.edges,'distinct')
+        Du2 = D(u).^2;
+        dDu2{1} =  2*D(u).*D(du{1});
+        dDu2{2} =  2*D(u).*D(du{2}); 
+    end
+    num = beta*Du2 + dk.*e/2.;
+    den = beta*Du2 + dk/2.;
+    
+    eTilde = (Du2 + ddk.*e/2)./(Du2 + ddk/2);
+    if strcmp(choice.edges,'similar')
+        tau = lambda./(2*den);
+        dtau{1} = -lambda/(beta.^2*(2*Du2+ddk));
+        dtau{2} = 1/(beta*(2*Du2+ddk));
+        dutau_du{1} = -lambda*2*dDu2{1}./(beta*(2*Du2+ddk).^2);
+        dutau_du{2} = -lambda*2*dDu2{2}./(beta*(2*Du2+ddk).^2);
+    elseif strcmp(choice.edges,'distinct')
+        tau = lambda./(2*den);       
+        dtau{1} = -lambda./(beta.^2*(2*Du2+ddk));
+        dtau{2} = 1./(beta*(2*Du2+ddk));
+        dutau_du{1} = -lambda*2*dDu2{1}./(beta*(2*Du2+ddk).^2);
+        dutau_du{2} = -lambda*2*dDu2{2}./(beta*(2*Du2+ddk).^2);
+    end
+    e  = sigmai.prox(num./den,tau);
+    
+    % updates de
+    deTilde{1} = (dDu2{1}.*(1-e)*ddk/2+ddk/2*de{1}.*(Du2+ddk/2))./(Du2+ddk/2).^2; 
+    deTilde{2} = (dDu2{2}.*(1-e)*ddk/2+ddk/2*de{2}.*(Du2+ddk/2))./(Du2+ddk/2).^2;
+    
+    sig_eTilde = sigmai.expr(eTilde);
+    de{1} = (deTilde{1} - (dutau_du{1}+dtau{1}).*sign(eTilde)).*(sig_eTilde>tau);
+    de{2} = (deTilde{2} - (dutau_du{2}+dtau{2}).*sign(eTilde)).*(sig_eTilde>tau);
+    
+    % computes error
+    Psi_2 = Psi(u,e,z);    
+    gap = abs(Psi_2 - Psi_1);
+    crit.obj(k) = Psi_2;
+    crit.gap(k) = abs(Psi_2 - Psi_1);
+    k = k+1;
+end
+
+end
