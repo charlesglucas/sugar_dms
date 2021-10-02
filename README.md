@@ -21,11 +21,16 @@ The basic syntax to run SUGAR D-MS is as follows:
 
 % return D-MS image reconstruction u and contour e estimates
 [u,e,~] = DMS_2D(image,Lambda(1),Lambda(2));
+```
 
 The main parameters to take into account are:
-
-  - SUGAR D-MS parameters:
     - `R`, the number of realizations of the Monte Carlo vector
     - `sigma`, the noise level which is estimated by default
     
+Here is an example with not default parameters:
+```
+param.R = 5; param.sigma = 0.1;
+[Lambda,~] = bfgs_sugar_dms(image, param);
+[u,e,~] = DMS_2D(image,Lambda(1),Lambda(2));
+```
 An example with simulated images can also be found in the `example` folder.
