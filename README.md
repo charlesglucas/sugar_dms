@@ -24,6 +24,7 @@ The basic syntax to run SUGAR D-MS is as follows:
 ```
 
 The main parameters to take into account are:
+
     - `R`, the number of realizations of the Monte Carlo vector
     - `sigma`, the noise level which is estimated by default
     
