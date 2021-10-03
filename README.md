@@ -26,15 +26,10 @@ The basic syntax to run SUGAR D-MS is as follows:
 
 The main parameters to take into account are:
 
-  - RCAs initialization:
+  - `R`, the number of realizations of the Monte Carlo vector
     - `n_comp`, the number of eigenPSFs to learn ("r" in the papers)
-  - `fit`:
-    - `obs_stars` should contain your observed stars (see note below for formatting conventions)
-    - `obs_gal` should contain your observed galaxies (see note below for formatting conventions)
-    - `stars_pos` and `gal_pos`, their respective positions
-    - either `shifts` (with their respective centroid shifts wrt. a common arbitrary grid) or, if they are to be estimated from the data, a rough estimation of the `psf_size` (for the window function - can be given in FWHM, R^2 or Gaussian sigma)
-  - `estimate_psf`:
-    - `test_pos`, the positions at which the PSF should be estimated
+  - `sigma`, the noise level which is estimated by default
+
 
 
 The main parameters to take into account are:
