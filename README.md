@@ -9,8 +9,8 @@ The following matlab package is required: [GRANS0](https://gitlab.com/timmitchel
 
 ## References
   - [Lucas et al., 2021] - Preprint
-  - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
   - [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164)
+  - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
   
 ## Quick start
 The basic syntax to run SUGAR D-MS is as follows:
