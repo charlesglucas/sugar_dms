@@ -29,7 +29,7 @@ The main parameters to take into account are:
   - `R`, the number of realizations of the Monte Carlo vector;
   - `sigma`, the noise level which is estimated by default.
     
-Here is an example with not default parameters:
+Here is an example with non-default parameters:
 ```
 param.R = 5; param.sigma = 0.1;
 [Lambda,~] = bfgs_sugar_dms(image, param);
