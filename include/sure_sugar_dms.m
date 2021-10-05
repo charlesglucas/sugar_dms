@@ -8,8 +8,8 @@ function [sure,sugar,x] = sure_sugar_dms(data, choice, fdmc, lambda)
 % Unbiased GrAdient estimator of the Risk (SUGAR) for multiple parameter 
 % selection. SIAM J. Imaging Sci. (2014)
 % and 
-% -  C.-G. Lucas, B. Pascal, N. Pustelnik and P. Abry: Hyperparameter
-% selection for the Discrete Mumford-Shah functional (2021)
+% - C.-G. Lucas, B. Pascal, N. Pustelnik and P. Abry: Hyperparameter
+% selection for the Discrete Mumford-Shah functional. Preprint. (2021)
 % April 2021
 %
 %inputs:

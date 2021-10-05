@@ -19,6 +19,10 @@
 %       otherwise
 %
 % Implementation C.G. LUCAS, ENS Lyon
+% from 
+% M. Foare, N. Pustelnik, and L. Condat: Semi-linearized
+% proximal alternating minimization for a discrete Mumford–Shah model.
+% IEEE Transactions on Image Processing. (2019)
 % April 2021
 function [ui,ei,crit] = DMS_2D(z,beta,lambda,choice)
 
