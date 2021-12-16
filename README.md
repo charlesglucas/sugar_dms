@@ -8,7 +8,7 @@ SUGAR DMS is an image recontruction and contour detection matlab package. It min
 The following matlab package is required: [GRANS0](https://gitlab.com/timmitchell/GRANSO/).
 
 ## References
-  - [Lucas et al., 2021] - Preprint
+  - [Lucas et al., 2021] - (https://arxiv.org/pdf/2109.13651.pdf)
   - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
   - [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164)
   
