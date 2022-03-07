@@ -32,7 +32,7 @@ The main parameters to take into account are:
 Here is an example with non-default parameters:
 ```
 param.R = 5; param.sigma = 0.1;
-[Lambda,~] = bfgs_sugar_dms(image, param);
+[Lambda,~] = bfgs_sugar_dms(image,param);
 [u,e,~] = DMS_2D(image,Lambda(1),Lambda(2));
 ```
 An example with simulated images can also be found in the `example` folder.
