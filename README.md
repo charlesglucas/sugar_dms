@@ -4,7 +4,7 @@ SUGAR D-MS
 ## Reference
 
 > **[Charles-Gérard Lucas](https://perso.ens-lyon.fr/charles.lucas), [Barbara Pascal](https://bpascal-fr.github.io), [Nelly Pustelnik](http://perso.ens-lyon.fr/nelly.pustelnik/), [Patrice Abry](https://perso.ens-lyon.fr/patrice.abry),**
-*Hyperparameter selection for the Discrete Mumford-Shah functional ,* 
+*Hyperparameter selection for the Discrete Mumford-Shah functional,* 
 Preprint. [Download](https://arxiv.org/pdf/2109.13651.pdf)
 
 ## Description
