@@ -24,10 +24,11 @@ Here is a comparison with the state-of-the-art SUGAR T-ROF (see [Cai and Steidl,
   <img width="1200" src="http://perso.ens-lyon.fr/charles.lucas/images/SUGARDMSresults.png">
 </p>
 
-## Requirements
-The following matlab package is required: [GRANS0](https://gitlab.com/timmitchell/GRANSO/).
+## Recommendation
+This toolbox is designed to work with [**Matlab 2020b**](https://fr.mathworks.com/products/new_products/release2020b.html).
 
-Note that this toolbox is designed to work with [**Matlab 2020b**](https://fr.mathworks.com/products/new_products/release2020b.html).
+## Requirement
+The following matlab package is required: [GRANS0](https://gitlab.com/timmitchell/GRANSO/).
 
 ## Related works
   - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
