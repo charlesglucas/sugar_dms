@@ -21,7 +21,7 @@ A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is
 
 Here are some comparisons with the state-of-the-art SUGAR T-ROF (see [Cai and Steidl, 2013](https://page.math.tu-berlin.de/~steidl/PDFs/CaiSte13.pdf) for T-ROF and [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164.pdf) for SUGAR) run using [gsugar](https://github.com/bpascal-fr/gsugar) on the [BSD69 dataset](https://paperswithcode.com/dataset/bsd):
 <p align="center">
-  <img width="600" height="200" src="http://perso.ens-lyon.fr/charles.lucas/images/SUGARDMSresults.svg">
+  <img width="600" height="200" src="http://perso.ens-lyon.fr/charles.lucas/images/SUGARDMSresults.png">
 </p>
 
 ## Requirements
