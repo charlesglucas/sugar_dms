@@ -13,7 +13,6 @@ A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is
   <img width="600" height="200" src="http://perso.ens-lyon.fr/charles.lucas/images/DMSdenoising.svg">
 </p>
 
-
 ## Requirements
 The following matlab package is required: [GRANS0](https://gitlab.com/timmitchell/GRANSO/).
 
