@@ -3,7 +3,7 @@ SUGAR D-MS
 
 ## Description
 SUGAR DMS is an image recontruction and contour detection matlab package. It performs the minimization of the Discrete Mumford-Shah (D-MS) functional, which enforces constraints related to smoothing over image and sparsity over contours to obtain a piecewise smooth reconstructed image $u$ and sparse estimated contours $e$ from observed noisy images $z$:
-$$\min_{u,e} \Vert u - z \Vert_2 +  \beta \Vert (1-e) \odot Du \Vert_2 + \lambda \Vert e \Vert_2$$
+$$\min_{u,e} \Vert u - z \Vert_2 +  \beta \Vert (1-e) \odot Du \Vert_2 + \lambda \Vert e \Vert_2$$,
 
 where $\odot$ denotes the component-wise product, D a discrete difference operator, and $\beta > 0$ and $\lambda > 0$ are regularization parameters.
 
