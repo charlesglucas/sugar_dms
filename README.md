@@ -27,6 +27,8 @@ Here is a comparison with the state-of-the-art SUGAR T-ROF (see [Cai and Steidl,
 ## Requirements
 The following matlab package is required: [GRANS0](https://gitlab.com/timmitchell/GRANSO/).
 
+Note that this toolbox is designed to work with [**Matlab 2020b**](https://fr.mathworks.com/products/new_products/release2020b.html).
+
 ## Related works
   - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
   - [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164)
