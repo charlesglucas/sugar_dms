@@ -1,6 +1,12 @@
 SUGAR D-MS
 ===
 
+## References
+
+> **[Charles-Gérard Lucas](https://perso.ens-lyon.fr/charles.lucas), [Barbara Pascal](https://bpascal-fr.github.io), [Nelly Pustelnik](http://perso.ens-lyon.fr/nelly.pustelnik/), [Patrice Abry](https://perso.ens-lyon.fr/patrice.abry),**
+*Hyperparameter selection for the Discrete Mumford-Shah functional ,* 
+Preprint. [Download](https://arxiv.org/pdf/2109.13651.pdf)
+
 ## Description
 SUGAR DMS is an image recontruction and contour detection matlab package. It performs the minimization of the Discrete Mumford-Shah (D-MS) functional, which enforces constraints related to smoothing over image and sparsity over contours to obtain a piecewise smooth reconstructed image $u$ and sparse estimated contours $e$ from observed noisy images $z$:
 $$\min_{u,e} \Vert u - z \Vert_2 +  \beta \Vert (1-e) \odot Du \Vert_2 + \lambda \Vert e \Vert_2$$
@@ -16,8 +22,7 @@ A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is
 ## Requirements
 The following matlab package is required: [GRANS0](https://gitlab.com/timmitchell/GRANSO/).
 
-## References
-  - [Lucas et al., 2021](https://arxiv.org/pdf/2109.13651.pdf)
+## Related works
   - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
   - [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164)
   
