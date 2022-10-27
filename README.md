@@ -9,8 +9,9 @@ where $\odot$ denotes the component-wise product, D is a discrete difference ope
 
 A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is designed, based on the minimization of an unbiased quadratic risk estimate. Efficient and automated minimization of the risk estimate relies on an unbiased estimate of the risk's gradient with respect to hyperparameters.
 
-
-<img align="center" width="400" src="http://perso.ens-lyon.fr/charles.lucas/images/DMSdenoising.svg">
+<p align="center">
+  <img width="600" height="200" src="http://perso.ens-lyon.fr/charles.lucas/images/DMSdenoising.svg">
+</p>
 
 
 ## Requirements
