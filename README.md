@@ -37,10 +37,9 @@ The following matlab package is required: [GRANS0](https://gitlab.com/timmitchel
 The basic syntax to run SUGAR D-MS is as follows:
 
 ```
-[Lambda,~] = bfgs_sugar_dms(image); % optimal hyperparameters for D-MS
-[u,e,~] = DMS_2D(image,Lambda(1),Lambda(2));
+[Lambda,~] = bfgs_sugar_dms(image); 
+[u,e,~] = DMS_2D(image,Lambda);
 ```
-
 
 The main parameters to take into account are:
 
