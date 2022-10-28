@@ -14,9 +14,7 @@ where $\odot$ denotes the component-wise product, D is a discrete difference ope
 
 A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is designed, based on the minimization of an unbiased quadratic risk estimate. Efficient and automated minimization of the risk estimate relies on an unbiased estimate of the risk's gradient with respect to hyperparameters.
 
-<p align="center">
-  <img width="300" src="http://perso.ens-lyon.fr/charles.lucas/images/DMSdenoising.svg">
-</p>
+
 
 Here is a comparison with the state-of-the-art SUGAR T-ROF (see [Cai and Steidl, 2013](https://page.math.tu-berlin.de/~steidl/PDFs/CaiSte13.pdf) for T-ROF and [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164.pdf) for SUGAR) run using [gsugar](https://github.com/bpascal-fr/gsugar) on a [BSD69 dataset](https://paperswithcode.com/dataset/bsd) image:
 <p align="center">
