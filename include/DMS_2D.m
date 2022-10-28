@@ -1,3 +1,5 @@
+function [ui,ei,crit] = DMS_2D(z,Lambda,choice)
+
 %This algorithm minimizes
 %
 %           1/2*||z-u||^2 + beta*||(1-e).*Du||^2 + lambda*R(e)
@@ -18,22 +20,22 @@
 %   - e in R^{n1xn2xM}: the contour where M is m for distinct edges and 1
 %       otherwise
 %
-% Implementation C.G. LUCAS, ENS Lyon
+% Implementation Charles-Gérard LUCAS, ENS Lyon
 % from 
 % M. Foare, N. Pustelnik, and L. Condat: Semi-linearized
 % proximal alternating minimization for a discrete Mumford–Shah model.
 % IEEE Transactions on Image Processing. (2019)
 % April 2021
-function [ui,ei,crit] = DMS_2D(z,beta,lambda,choice)
 
 % default parameters
-if nargin == 3, choice = struct; end
+if nargin == 2, choice = struct; end
 if ~isfield(choice,'prior'), choice.prior = 'gradient'; end
 if ~isfield(choice,'norm'), choice.norm = 'L1'; end
 if ~isfield(choice,'edges'), choice.edges = 'similar'; end
 if ~isfield(choice,'type'), choice.type = '2D'; end
 
 
+beta = Lambda(1);lambda = Lambda(2);
 % dim
 [n1,n2,m] = size(z);
 
