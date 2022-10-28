@@ -1,4 +1,3 @@
-
 %This code shows how to use the toolbox SUGAR_DMS minimizing the Discrete
 %Mummford-Shah functional:
 %           1/2*||z-u||^2 + beta*||(1-e).*Du||^2 + lambda*R(e)
@@ -26,7 +25,7 @@ param.sigma = stdn; % noise level estimation if empty
 
 %% SUGAR DMS
 [Lambda,crit] = bfgs_sugar_dms(z,param);
-[u,e,~] = DMS_2D(z,Lambda(1),Lambda(2));
+[u,e,~] = DMS_2D(z,Lambda);
 
 %% Plots DMS estimates
 
