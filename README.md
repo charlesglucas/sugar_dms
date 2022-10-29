@@ -21,10 +21,6 @@ Here is a comparison with the state-of-the-art SUGAR T-ROF (see [Cai and Steidl,
   <img width="1000" src="http://perso.ens-lyon.fr/charles.lucas/images/SUGARDMSresults.png">
 </p>
 
-## Related works
-  - [Foare et al., 2019](https://hal.archives-ouvertes.fr/hal-01782346/document)
-  - [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164)
-
 ## Recommendation
 This toolbox is designed to work with [**Matlab 2020b**](https://fr.mathworks.com/products/new_products/release2020b.html).
 
