@@ -10,9 +10,7 @@ Preprint. [Download](https://arxiv.org/pdf/2109.13651.pdf)
 SUGAR DMS is an image recontruction and contour detection matlab package. It performs the minimization of the Discrete Mumford-Shah (D-MS) functional, which enforces constraints related to smoothing over image and sparsity over contours to obtain a piecewise smooth reconstructed image $u$ and sparse estimated contours $e$ from observed noisy images $z$:
 $$\underset{u,e}{\rm minimize} \quad \Vert u - z \Vert_2 +  \beta \Vert (1-e) \odot Du \Vert_2 + \lambda \Vert e \Vert_1,$$
 
-where $\odot$ denotes the component-wise product, D is a discrete difference operator, and $\beta > 0$ and $\lambda > 0$ are regularization parameters.
-
-A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is designed, based on the minimization of an unbiased quadratic risk estimate. Efficient and automated minimization of the risk estimate relies on an unbiased estimate of the risk's gradient with respect to hyperparameters.
+where $\odot$ denotes the component-wise product, D is a discrete difference operator, and $\beta > 0$ and $\lambda > 0$ are regularization parameters. A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is designed, based on the minimization of an unbiased quadratic risk estimate. Efficient and automated minimization of the risk estimate relies on an unbiased estimate of the risk's gradient with respect to hyperparameters.
 
 <p align="center">
   <img width="400" src="http://perso.ens-lyon.fr/charles.lucas/images/DMSestimatesIllustration.svg">
