@@ -18,7 +18,7 @@ where $\odot$ denotes the component-wise product, D is a discrete difference ope
 
 Here is a comparison with the state-of-the-art SUGAR T-ROF (see [Cai and Steidl, 2013](https://page.math.tu-berlin.de/~steidl/PDFs/CaiSte13.pdf) for T-ROF and [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164.pdf) for SUGAR) run using [gsugar](https://github.com/bpascal-fr/gsugar) on a [BSD69 dataset](https://paperswithcode.com/dataset/bsd) image:
 <p align="center">
-  <img width="1000" src="http://perso.ens-lyon.fr/charles.lucas/images/SUGARDMSresults.png">
+  <img width="1000" src="https://github.com/charlesglucas/sugar_dms/blob/main/images/SUGARDMSresults.png">
 </p>
 
 ## Recommendation
