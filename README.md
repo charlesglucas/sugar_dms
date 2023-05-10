@@ -13,7 +13,7 @@ $$\underset{u,e}{\rm minimize} \quad \Vert u - z \Vert_2 +  \beta \Vert (1-e) \o
 where $\odot$ denotes the component-wise product, D is a discrete difference operator, and $\beta > 0$ and $\lambda > 0$ are regularization parameters. A Stein-like strategy providing optimal hyperparameters $\beta$ and $\lambda$ is designed, based on the minimization of an unbiased quadratic risk estimate. Efficient and automated minimization of the risk estimate relies on an unbiased estimate of the risk's gradient with respect to hyperparameters.
 
 <p align="center">
-  <img width="400" src="http://perso.ens-lyon.fr/charles.lucas/images/DMSestimatesIllustration.svg">
+  <img width="400" src="https://github.com/charlesglucas/sugar_dms/blob/main/images/DMSestimatesIllustration.svg">
 </p>
 
 Here is a comparison with the state-of-the-art SUGAR T-ROF (see [Cai and Steidl, 2013](https://page.math.tu-berlin.de/~steidl/PDFs/CaiSte13.pdf) for T-ROF and [Deledalle et al., 2014](https://arxiv.org/pdf/1405.1164.pdf) for SUGAR) run using [gsugar](https://github.com/bpascal-fr/gsugar) on a [BSD69 dataset](https://paperswithcode.com/dataset/bsd) image:
